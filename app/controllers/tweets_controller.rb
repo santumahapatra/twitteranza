@@ -5,11 +5,6 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all
   end
 
-  def new
-    @tweet = Tweet.new
-    render 'index.html.erb'
-  end
-
   def create
     @tweet = Tweet.new(tweet_params)
 
