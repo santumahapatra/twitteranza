@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'tweets#new'
+  root 'tweets#index'
   resources :tweets
 
   # The priority is based upon order of creation: first created -> highest priority.
