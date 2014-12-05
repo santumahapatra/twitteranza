@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Tweet was successfully created.' }
         format.json { render :show, status: :created, location: @tweet }
       else
-        format.html { render :new }
+        format.html { redirect_to root_path, notice: 'Tweet is greater than 140 characters' }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
       end
     end
