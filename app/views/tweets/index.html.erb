@@ -1,18 +1,14 @@
-<section class="primary row">
-  <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-    <h1>What are you doing?</h1>
-    <div class="form-container">
-      <%= render 'form' %>
-    </div>
+<h1>What are you doing?</h1>
+<div class="form-container">
+  <%= render 'form' %>
+</div>
 
-    <h1>The World in Tweets</h1>
+<h1>The World in Tweets</h1>
 
-    <ul class="tweets_box">
-      <% @tweets.each do |tweet| %>
-        <li class="tweet">
-          <%= tweet.content %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</section>
+<ul class="tweets_box">
+  <% @tweets.each do |tweet| %>
+    <li class="tweet">
+      <%= tweet.content %>
+    </li>
+  <% end %>
+</ul>
