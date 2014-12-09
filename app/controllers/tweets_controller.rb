@@ -12,7 +12,7 @@ class TweetsController < ApplicationController
       if @tweet.save
         format.html { redirect_to root_path, notice: 'Tweet was successfully created.' }
       else
-        format.html { redirect_to root_path, notice: 'Tweet is blank or greater than 140 characters' }
+        format.html { redirect_to root_path, notice: 'Tweet cannot be created if content is blank or greater than 140 characters' }
       end
     end
   end
