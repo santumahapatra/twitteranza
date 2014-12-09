@@ -19,24 +19,14 @@
 
 
 $(function() {
-  var tweetContent = $("#tweet_content");
-  var errorElement = $("#tweet_error_field");
-
   var validate = function (value){
     return (value === null || value === "" || value.length > 140) ? false : true;
   };
 
-  var handleInput = function(){
-    validate(tweetContent[0].value) ? errorElement.removeClass('hide') : errorElement.addClass('hide');
-  };
-
-  tweetContent.on("blur", function(){
-    console.log(1);
-    validate($("#tweet_content")[0].value) ? $("#tweet_error_field").addClass('hide') : $("#tweet_error_field").removeClass('hide');
-    console.log(2 + $("#tweet_error_field") + $("#tweet_content")[0].value)
+  $("#tweet_content").on("blur", function(){
+    var errorElement = $("#tweet_error_field");
+    validate($("#tweet_content")[0].value) ? errorElement.addClass('hide') : errorElement.removeClass('hide');
   });
-  tweetContent.on("focus", handleInput());
-  tweetContent.on("keypress", handleInput());
 });
 
 
