@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root 'tweets#index'
   resources :tweets
+  resources :users do
+    member do
+      get :tweets
+      #get :following, :followers
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
