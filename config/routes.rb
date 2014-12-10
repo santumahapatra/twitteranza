@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :tweets
-      #get :following, :followers
+      get :following, :followers
     end
   end
+  resources :relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

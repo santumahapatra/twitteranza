@@ -1,11 +1,18 @@
 <div>
   <div>User Email: <%= @user.email %></div>
-
-  <ul class="tweets_box">
-  <% @tweets.each do |tweet| %>
-    <li class="tweet">
-      <%= tweet.content %>
-    </li>
+  
+  <section>
+    <%= render 'shared/stats' %>
+  </section>
+  
+  <%= render 'follow_form' if signed_in? %>
+  <% if @tweets.any? %>
+    <ul class="tweets_box">
+      <% @tweets.each do |tweet| %>
+        <li class="tweet">
+          <%= tweet.content %>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
-</ul>
 </div>
