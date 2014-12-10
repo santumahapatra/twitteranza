@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, :only => [:index, :create]
+  before_action :current_user, only: :create
 
   def index
     @tweet = Tweet.new
@@ -8,6 +9,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
+    puts @tweet
 
     respond_to do |format|
       if @tweet.save
@@ -21,6 +23,6 @@ class TweetsController < ApplicationController
   private
 
     def tweet_params
-      params.require(:tweet).permit(:content)
+      params.require(:tweet).permit(:content, :user_id)
     end
 end

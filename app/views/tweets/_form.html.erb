@@ -14,6 +14,7 @@
   <div class="field">
     <%= f.label :content %> (should be less than 140 characters)<br>
     <%= f.text_field :content %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div id="tweet_error_field" class="hide">Tweet cannot be blank or more than 140 characters</div>
   <div class="actions">
