@@ -1,14 +1,14 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, :only => [:index, :create]
-  before_action :current_user, only: :create
+  before_action :current_user, :only => [:index, :create]
 
   def index
-    @tweet = Tweet.new
-    @tweets = Tweet.all
+    @tweet = current_user.tweets.build
+    @feed_items = current_user.feed
   end
 
   def create
-    @tweet = Tweet.new(tweet_params)
+    @tweet = current_user.tweets.build(tweet_params)
     puts @tweet
 
     respond_to do |format|
